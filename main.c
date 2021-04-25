@@ -49,8 +49,16 @@ int main()
 	
 	int switcher = 0;
 	
+	printf("-------------------------------------------------------------------------------------------------------\n");
+	printf("1-Print all cars\n");
+	printf("2-Print all second-hand cars define barnd without any repairs these price\n");
+	printf("3-Print all cars of Russian\n");
+	printf("4-Sorting of id\n");
+	printf("5-Sorting of price\n");
+	printf("6-Sorting of new or second-hand\n");
+	printf("-------------------------------------------------------------------------------------------------------\n");
 	do {
-	   printf("Enter number of operation, to exit enter -1 : ");
+	   printf("Enter number of operation, to exit enter -1: ");
 	   scanf("%d", &switcher);
 	    switch (switcher) 
 		{
@@ -61,27 +69,22 @@ int main()
 		   }
            case 2://вывод бу машин указанной марки с отсутсвием ремонта в указаном ценовом диапазоне
 		   {
-			   printf("Print all second-hand cars define barnd without any repairs these price\n");
 			   break;
 		   }
            case 3://вывод списка всех отечественных автомобилей
 		   {
-			   printf("Print all cars of Russian\n");
 			   break;
 		   }
            case 4://сортировать по id
 		   {
-			   printf("Sorting of id\n");
 			   break;
 		   }
            case 5://сортировть по цене
 		   {
-			   printf("Sorting of price\n");
 			   break;
 		   }
            case 6://сортировать в начале новые потом бу
 		   {
-			   printf("Sorting of new or second-hand\n");
 			   break;
 		   }
 		   case -1:
