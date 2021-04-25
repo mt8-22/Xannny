@@ -13,9 +13,12 @@ struct car {
 };
 
 
+void print_all(struct car c_array[]);
+
+
 int main()
 {
-	struct car car_array[8] = {
+	struct car car_array[9] = {
 		{
 			1, "BMW", "Germany", 10000, "Black", "New", 0, 0
 		},
@@ -53,7 +56,7 @@ int main()
 		{
 		   case 1://вывод всех машин
 		   {
-			   printf("Print all cars\n");
+			   print_all(car_array);
 			   break;
 		   }
            case 2://вывод бу машин указанной марки с отсутсвием ремонта в указаном ценовом диапазоне
@@ -95,4 +98,13 @@ int main()
 	
 	
 	return 0;
+}
+
+void print_all(struct car c_array[])
+{
+    printf("-------------------------------------------------------------------------------------------------------\n");	
+	printf("%3s %15s %15s %6s %10s %15s %20s %15s\n","ID:", "Brand", "Country_maker", "Price", "Color", "Condition", "Kilometres", "Amount_repairs");
+	for (int i = 0; i <= 7; i++)		
+		printf("%3d %15s %15s %6d %10s %15s %20d %15d\n", c_array[i].id, c_array[i].brand, c_array[i].country_maker, c_array[i].price, c_array[i].color, c_array[i].condition, c_array[i].kilometrs, c_array[i].amount_repair);
+	printf("-------------------------------------------------------------------------------------------------------\n");
 }
