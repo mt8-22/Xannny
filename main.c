@@ -16,7 +16,7 @@ struct car {
 
 
 void print_all(struct car c_array[]);
-//void brand(struct car c_array[]);
+void brand(struct car c_array[]);
 void print_russia(struct car c_array[]);
 
 
@@ -77,7 +77,7 @@ int main()
 		   }
            case 2://вывод бу машин указанной марки с отсутсвием ремонта в указаном ценовом диапазоне
 		   {
-			   //brand(car_array);
+			   brand(car_array);
 			   break;
 		   }
            case 3://вывод списка всех отечественных автомобилей
@@ -125,7 +125,7 @@ void print_all(struct car c_array[])
 }
 
 
-/*void brand(struct car c_array[])
+void brand(struct car c_array[])
 {
 	int min_price = 0, max_price = 0;
 	char brand1 [20] = "";
@@ -138,19 +138,15 @@ void print_all(struct car c_array[])
 	printf("Enter brand: \n");
 	scanf("%s", &brand1);
 	for (int i = 0; i<= 8; i++){
-		if (c_array[i].condition == "Second-hand"){
-		   if (c_array[i].brand == brand1){
-		      if (c_array[i].amount_repair == 0){
-			     if (c_array[i].price >= min_price){
-				   if (c_array[i].price <= max_price){
-			          printf("Define car: %s\n", c_array[i].model);
-				   }
-				 }
-			  }
+		if ((strcmp(c_array[i].condition,"Second-hand") == 0) && (strcmp(c_array[i].brand, brand1) == 0)){ 
+	       if ((c_array[i].amount_repair == 0) && (c_array[i].price >= min_price)){ 
+			   if (c_array[i].price <= max_price){
+	              printf("Define car: %s\n", c_array[i].model);
+		       }
 		   }
-		}
+		}   	
 	}
-}*/
+}
 
 void print_russia(struct car c_array[])
 {
