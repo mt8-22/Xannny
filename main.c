@@ -19,6 +19,7 @@ void print_all(struct car c_array[]);
 void brand(struct car c_array[]);
 void print_russia(struct car c_array[]);
 void sort_id(struct car c_array[]);
+void sort_price(struct car c_array[]);
 
 
 
@@ -94,6 +95,8 @@ int main()
 		   }
            case 5://сортировть по цене
 		   {
+			   sort_price(car_array);
+			   print_all(car_array);
 			   break;
 		   }
            case 6://сортировать в начале новые потом бу
@@ -257,4 +260,99 @@ void sort_id(struct car c_array[])
 		 printf("Incorrect number of operation");
 	 }
 
+}
+
+
+void sort_price(struct car c_array[])
+{
+	int choice = 0, buf = 0;
+	char buf1[20] = "";
+	
+	
+	printf("For ascending sorting enter '1',for sorting down enter '2':\n ");
+	scanf("%d", &choice); 
+	 if (choice == 1)
+	 {
+		for (int i = 0; i <= 8; i++)
+        {
+	       for (int j = i + 1; j <= 8; j++)
+		   {
+			   if (c_array[i].price > c_array[j].price)
+               {
+				 buf = c_array[j].id;
+				 c_array[j].id = c_array[i].id;
+				 c_array[i].id = buf;
+				 strcpy(buf1, c_array[j].model);
+				 strcpy(c_array[j].model, c_array[i].model);
+				 strcpy(c_array[i].model, buf1);
+				 strcpy(buf1, c_array[j].brand);
+				 strcpy(c_array[j].brand, c_array[i].brand);
+				 strcpy(c_array[i].brand, buf1);
+				 strcpy(buf1, c_array[j].country_maker);
+				 strcpy(c_array[j].country_maker, c_array[i].country_maker);
+				 strcpy(c_array[i].country_maker, buf1);
+				 buf = c_array[j].price;
+				 c_array[j].price = c_array[i].price;
+				 c_array[i].price = buf;
+				 strcpy(buf1, c_array[j].color);
+				 strcpy(c_array[j].color, c_array[i].color);
+				 strcpy(c_array[i].color, buf1);
+				 strcpy(buf1, c_array[j].condition);
+				 strcpy(c_array[j].condition, c_array[i].condition);
+				 strcpy(c_array[i].condition, buf1);
+				 buf = c_array[j].kilometrs;
+				 c_array[j].kilometrs = c_array[i].kilometrs;
+				 c_array[i].kilometrs = buf;
+				 buf = c_array[j].amount_repair;
+				 c_array[j].amount_repair = c_array[i].amount_repair;
+				 c_array[i].amount_repair = buf;
+				   
+               }				   
+		   }
+        }	
+	 }
+	 else if (choice == 2)
+     {
+		 for (int i = 0; i <= 8; i++)
+        {
+	       for (int j = i + 1; j <= 8; j++)
+		   {
+			   if (c_array[i].price < c_array[j].price)
+               {
+				 buf = c_array[j].id;
+				 c_array[j].id = c_array[i].id;
+				 c_array[i].id = buf;
+				 strcpy(buf1, c_array[j].model);
+				 strcpy(c_array[j].model, c_array[i].model);
+				 strcpy(c_array[i].model, buf1);
+				 strcpy(buf1, c_array[j].brand);
+				 strcpy(c_array[j].brand, c_array[i].brand);
+				 strcpy(c_array[i].brand, buf1);
+				 strcpy(buf1, c_array[j].country_maker);
+				 strcpy(c_array[j].country_maker, c_array[i].country_maker);
+				 strcpy(c_array[i].country_maker, buf1);
+				 buf = c_array[j].price;
+				 c_array[j].price = c_array[i].price;
+				 c_array[i].price = buf;
+				 strcpy(buf1, c_array[j].color);
+				 strcpy(c_array[j].color, c_array[i].color);
+				 strcpy(c_array[i].color, buf1);
+				 strcpy(buf1, c_array[j].condition);
+				 strcpy(c_array[j].condition, c_array[i].condition);
+				 strcpy(c_array[i].condition, buf1);
+				 buf = c_array[j].kilometrs;
+				 c_array[j].kilometrs = c_array[i].kilometrs;
+				 c_array[i].kilometrs = buf;
+				 buf = c_array[j].amount_repair;
+				 c_array[j].amount_repair = c_array[i].amount_repair;
+				 c_array[i].amount_repair = buf;
+				   
+               }				   
+		   }
+        } 	
+     }
+	 else 
+     {
+		 printf("Incorrect number of operation");
+	 }
 }
