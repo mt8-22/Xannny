@@ -20,6 +20,7 @@ void brand(struct car c_array[]);
 void print_russia(struct car c_array[]);
 void sort_id(struct car c_array[]);
 void sort_price(struct car c_array[]);
+void sort_new(struct car c_array[]);
 
 
 
@@ -101,6 +102,8 @@ int main()
 		   }
            case 6://сортировать в начале новые потом бу
 		   {
+			   sort_new(car_array);
+			   print_all(car_array);
 			   break;
 		   }
 		   case -1:
@@ -356,3 +359,48 @@ void sort_price(struct car c_array[])
 		 printf("Incorrect number of operation");
 	 }
 }
+
+
+void sort_new(struct car c_array[])
+{
+	int buf = 0;
+	char buf1[20] = "";
+	
+	
+	for (int i = 0; i <= 8; i++)
+        {
+	       for (int j = i + 1; j <= 8; j++)
+		   {
+			   if (strcmp(c_array[i].condition, "Second-hand") == 0)
+               {
+				 buf = c_array[j].id;
+				 c_array[j].id = c_array[i].id;
+				 c_array[i].id = buf;
+				 strcpy(buf1, c_array[j].model);
+				 strcpy(c_array[j].model, c_array[i].model);
+				 strcpy(c_array[i].model, buf1);
+				 strcpy(buf1, c_array[j].brand);
+				 strcpy(c_array[j].brand, c_array[i].brand);
+				 strcpy(c_array[i].brand, buf1);
+				 strcpy(buf1, c_array[j].country_maker);
+				 strcpy(c_array[j].country_maker, c_array[i].country_maker);
+				 strcpy(c_array[i].country_maker, buf1);
+				 buf = c_array[j].price;
+				 c_array[j].price = c_array[i].price;
+				 c_array[i].price = buf;
+				 strcpy(buf1, c_array[j].color);
+				 strcpy(c_array[j].color, c_array[i].color);
+				 strcpy(c_array[i].color, buf1);
+				 strcpy(buf1, c_array[j].condition);
+				 strcpy(c_array[j].condition, c_array[i].condition);
+				 strcpy(c_array[i].condition, buf1);
+				 buf = c_array[j].kilometrs;
+				 c_array[j].kilometrs = c_array[i].kilometrs;
+				 c_array[i].kilometrs = buf;
+				 buf = c_array[j].amount_repair;
+				 c_array[j].amount_repair = c_array[i].amount_repair;
+				 c_array[i].amount_repair = buf;
+			    }
+		   }
+		}
+} 
