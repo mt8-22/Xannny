@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 struct car
@@ -16,6 +17,7 @@ struct car
 };
 
 
+void print_menu();
 void print_all(struct car c_array[]);
 void brand(struct car c_array[]);
 void print_russia(struct car c_array[]);
@@ -59,30 +61,29 @@ int main()
 	};
 	
 	
-	int switcher = 0;
-	
+	int switcher;
 
-	printf("-------------------------------------------------------------------------------------------------------\n");
-	printf("1-Print all cars\n");
-	printf("2-Print all second-hand cars define brand without any repairs these price\n");
-	printf("3-Print all cars of Russian\n");
-	printf("4-Sorting of id\n");
-	printf("5-Sorting of price\n");
-	printf("6-Sorting of new or second-hand\n");
-	printf("-------------------------------------------------------------------------------------------------------\n");
+
 	do
 	{
+		print_menu();
 		printf("Enter number of operation, to exit enter -1: ");
 		scanf("%d", &switcher);
+		system("cls");
 		switch (switcher)
 		{
+
+			case 0:  //ввод машин
+			{
+
+			}
 			case 1:  //вывод всех машин
 			{
 				print_all(car_array);
 				break;
 			}
 
-			case 2:  //вывод бу машин указанной марки с отсутсвием ремонта в указаном ценовом диапазоне
+			case 2:  //вывод б/у машин указанной марки с отсутсвием ремонта в указаном ценовом диапазоне
 			{
 				brand(car_array);
 				break;
@@ -115,7 +116,7 @@ int main()
 				break;
 			}
 
-			case -1:
+			case -1:  //выход из switch
 			{
 				break;
 			}
@@ -125,11 +126,24 @@ int main()
 				printf("Incorrect number of operation\n");
 			}
 		}
+
 	} while (switcher != -1);
 
 	return 0;
+}
 
 
+void print_menu()
+{
+	printf("-------------------------------------------------------------------------------------------------------\n");
+	printf("0-Enter cars\n");
+	printf("1-Print all cars\n");
+	printf("2-Print all second-hand cars define brand without any repairs these price\n");
+	printf("3-Print all cars of Russian\n");
+	printf("4-Sorting of id\n");
+	printf("5-Sorting of price\n");
+	printf("6-Sorting of new or second-hand\n");
+	printf("-------------------------------------------------------------------------------------------------------\n");
 }
 
 
@@ -185,7 +199,7 @@ void print_russia(struct car c_array[])
 	}
 }
 
-
+/*
 void sort_id(struct car c_array[])
 {
 	int choice = 0, buf = 0;
@@ -233,7 +247,7 @@ void sort_id(struct car c_array[])
 				}
 			}
 		}	
-	}
+	} 
 	else if (choice == 2)
 	{
 		for (int i = 0; i <= 8; i++)
@@ -418,5 +432,4 @@ void sort_new(struct car c_array[])
 		}
 	}
 
-
-}
+}*/
